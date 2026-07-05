@@ -1,0 +1,83 @@
+[
+  {
+    "id": "aiops_cpu_spin_loop",
+    "alert_name": "HighCPUUsage",
+    "service_name": "data-sync-service",
+    "input": "CPU 使用率 96%，单个进程 pid-12345 长时间占满 CPU，应用日志出现大量重复错误堆栈。",
+    "expected_root_causes": ["cpu_spin_loop"],
+    "expected_evidence_terms": ["96%", "pid-12345", "重复错误堆栈"],
+    "expected_actions": ["restart_instance", "rollback_release", "inspect_error_stack"]
+  },
+  {
+    "id": "aiops_cpu_traffic_spike",
+    "alert_name": "HighCPUUsage",
+    "service_name": "api-gateway-service",
+    "input": "多个实例 CPU 同时升高，请求量在 10 分钟内增长 4 倍，没有明显 ERROR 日志。",
+    "expected_root_causes": ["traffic_spike"],
+    "expected_evidence_terms": ["多个实例", "请求量", "4 倍"],
+    "expected_actions": ["scale_out", "enable_rate_limit", "watch_cpu"]
+  },
+  {
+    "id": "aiops_memory_leak",
+    "alert_name": "HighMemoryUsage",
+    "service_name": "order-service",
+    "input": "内存使用率持续缓慢上升，Full GC 后无法释放，日志中出现大量 GC 记录。",
+    "expected_root_causes": ["memory_leak"],
+    "expected_evidence_terms": ["持续缓慢上升", "Full GC", "无法释放"],
+    "expected_actions": ["dump_heap", "restart_instance", "analyze_heap"]
+  },
+  {
+    "id": "aiops_memory_oom",
+    "alert_name": "HighMemoryUsage",
+    "service_name": "file-import-service",
+    "input": "大文件导入后出现 OOM，应用重启，导入任务一次性加载了完整文件。",
+    "expected_root_causes": ["large_file_memory_pressure"],
+    "expected_evidence_terms": ["大文件", "OOM", "一次性加载"],
+    "expected_actions": ["streaming_processing", "limit_file_size", "batch_processing"]
+  },
+  {
+    "id": "aiops_disk_log_bloat",
+    "alert_name": "HighDiskUsage",
+    "service_name": "payment-service",
+    "input": "/var/log 占用 120GB，应用日志持续增长，生产日志级别误设为 DEBUG。",
+    "expected_root_causes": ["log_bloat"],
+    "expected_evidence_terms": ["/var/log", "120GB", "DEBUG"],
+    "expected_actions": ["clear_large_logs", "enable_logrotate", "lower_log_level"]
+  },
+  {
+    "id": "aiops_service_db_connection",
+    "alert_name": "ServiceUnavailable",
+    "service_name": "checkout-service",
+    "input": "健康检查失败，应用日志出现 Too many connections 和 database connection refused。",
+    "expected_root_causes": ["db_connection_failure"],
+    "expected_evidence_terms": ["健康检查失败", "Too many connections", "connection refused"],
+    "expected_actions": ["check_database", "restart_app_pool", "tune_connection_pool"]
+  },
+  {
+    "id": "aiops_slow_db_query",
+    "alert_name": "SlowResponse",
+    "service_name": "report-service",
+    "input": "P99 响应时间 5.8s，数据库慢查询日志显示 query_time 超过 3000ms，执行计划为全表扫描。",
+    "expected_root_causes": ["database_slow_query"],
+    "expected_evidence_terms": ["P99", "5.8s", "query_time", "全表扫描"],
+    "expected_actions": ["explain_sql", "add_index", "optimize_sql"]
+  },
+  {
+    "id": "aiops_slow_cache_miss",
+    "alert_name": "SlowResponse",
+    "service_name": "profile-service",
+    "input": "响应时间升高，缓存命中率从 92% 降到 35%，数据库查询量激增。",
+    "expected_root_causes": ["cache_miss_or_penetration"],
+    "expected_evidence_terms": ["缓存命中率", "92%", "35%", "数据库查询量"],
+    "expected_actions": ["warm_cache", "cache_null_values", "add_bloom_filter"]
+  },
+  {
+    "id": "aiops_service_network_dns",
+    "alert_name": "ServiceUnavailable",
+    "service_name": "edge-api-service",
+    "input": "健康检查失败，多个地域访问超时，DNS 解析失败，负载均衡器没有把流量切到健康实例。",
+    "expected_root_causes": ["network_or_dns_failure"],
+    "expected_evidence_terms": ["健康检查失败", "DNS 解析失败", "负载均衡器"],
+    "expected_actions": ["check_dns", "check_load_balancer", "switch_traffic"]
+  }
+]

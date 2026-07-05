@@ -21,7 +21,8 @@ NC = \033[0m
         install install-dev dev run test test-quick format lint fix type-check \
         security pre-commit-install pre-commit check-all coverage docs shell \
         ipython watch add add-dev remove list-docs test-upload sync logs \
-        start-cls stop-cls start-monitor stop-monitor start-api stop-api status-mcp
+        start-cls stop-cls start-monitor stop-monitor start-api stop-api status-mcp \
+        eval-offline
 
 # ============================================================
 # 默认目标：显示帮助信息
@@ -75,6 +76,7 @@ help:
 	@echo "  $(YELLOW)make fix$(NC)          - 🔧 自动修复问题"
 	@echo "  $(YELLOW)make test$(NC)         - 🧪 运行测试"
 	@echo "  $(YELLOW)make check-all$(NC)    - ✅ 运行所有检查"
+	@echo "  $(YELLOW)make eval-offline$(NC) - 📏 运行离线评测（RAG/Tool/AIOps）"
 	@echo ""
 	@echo "$(CYAN)【其他】$(NC)"
 	@echo "  $(YELLOW)make clean$(NC)        - 🧹 清理临时文件"
@@ -571,6 +573,11 @@ check-all:  ## 运行所有检查
 	@$(MAKE) lint
 	@$(MAKE) test
 	@echo "$(GREEN)✅ 所有检查通过！$(NC)"
+
+eval-offline:  ## 运行离线评测（不依赖 LLM/Milvus/MCP）
+	@echo "$(YELLOW)📏 运行离线评测...$(NC)"
+	python evals/run_offline_evals.py --write-report
+	@echo "$(GREEN)✅ 评测完成: evals/reports/latest.md$(NC)"
 
 pre-commit-install:  ## 安装 pre-commit hooks
 	@echo "$(YELLOW)🔗 安装 pre-commit hooks...$(NC)"

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "rag_cpu_001",
+    "question": "HighCPUUsage 告警触发后应该怎么快速止损？",
+    "expected_sources": ["cpu_high_usage.md"],
+    "required_terms": ["HighCPUUsage", "CPU使用率", "80%", "扩容", "限流", "重启"],
+    "answer_terms": ["扩容", "限流", "重启", "日志", "CPU使用率"]
+  },
+  {
+    "id": "rag_cpu_002",
+    "question": "CPU 占用接近 100%，日志里有重复堆栈，可能是什么原因？",
+    "expected_sources": ["cpu_high_usage.md"],
+    "required_terms": ["死循环", "无限递归", "重复的错误堆栈", "重启", "回滚"],
+    "answer_terms": ["死循环", "无限递归", "重启", "回滚"]
+  },
+  {
+    "id": "rag_cpu_003",
+    "question": "CPU 告警恢复后要怎么验证问题已经解决？",
+    "expected_sources": ["cpu_high_usage.md"],
+    "required_terms": ["验证步骤", "正常水平", "<60%", "响应时间", "错误日志"],
+    "answer_terms": ["CPU使用率", "<60%", "响应时间", "错误日志"]
+  },
+  {
+    "id": "rag_memory_001",
+    "question": "内存使用率超过 85% 并且出现 OOM，应该如何处理？",
+    "expected_sources": ["memory_high_usage.md"],
+    "required_terms": ["HighMemoryUsage", "85%", "OOM", "重启", "堆转储"],
+    "answer_terms": ["重启", "dump", "堆转储", "OOM"]
+  },
+  {
+    "id": "rag_memory_002",
+    "question": "Full GC 后内存无法释放，最可能的根因和后续动作是什么？",
+    "expected_sources": ["memory_high_usage.md"],
+    "required_terms": ["内存泄漏", "Full GC", "无法释放", "MAT", "修复"],
+    "answer_terms": ["内存泄漏", "堆转储", "MAT", "修复"]
+  },
+  {
+    "id": "rag_memory_003",
+    "question": "大文件处理导致内存突增时，长期优化方案有哪些？",
+    "expected_sources": ["memory_high_usage.md"],
+    "required_terms": ["大文件", "流式处理", "限制文件大小", "分批处理", "异步处理"],
+    "answer_terms": ["流式处理", "分批处理", "异步处理", "文件大小"]
+  },
+  {
+    "id": "rag_disk_001",
+    "question": "磁盘使用率超过 90%，日志无法写入，第一时间应该怎么排查？",
+    "expected_sources": ["disk_high_usage.md"],
+    "required_terms": ["HighDiskUsage", "磁盘使用率", "日志无法记录", "查找大文件", "扩容"],
+    "answer_terms": ["磁盘", "大文件", "清理", "扩容"]
+  },
+  {
+    "id": "rag_disk_002",
+    "question": "/var/log 占用大量空间且日志文件持续增长，该怎么处理？",
+    "expected_sources": ["disk_high_usage.md"],
+    "required_terms": ["/var/log", "日志文件过大", "logrotate", "压缩", "删除旧日志"],
+    "answer_terms": ["日志轮转", "logrotate", "压缩", "删除"]
+  },
+  {
+    "id": "rag_disk_003",
+    "question": "Docker 镜像和停止容器占满磁盘，有哪些清理命令？",
+    "expected_sources": ["disk_high_usage.md"],
+    "required_terms": ["Docker", "docker image prune", "docker container prune", "docker system prune"],
+    "answer_terms": ["docker image prune", "docker container prune", "docker system prune"]
+  },
+  {
+    "id": "rag_service_001",
+    "question": "ServiceUnavailable 告警发生时，5 分钟内应该做什么？",
+    "expected_sources": ["service_unavailable.md"],
+    "required_terms": ["ServiceUnavailable", "5分钟内", "快速定位", "回滚", "降级"],
+    "answer_terms": ["确认故障", "回滚", "降级", "恢复服务"]
+  },
+  {
+    "id": "rag_service_002",
+    "question": "服务不可用且日志出现数据库连接错误，应该如何恢复？",
+    "expected_sources": ["service_unavailable.md"],
+    "required_terms": ["数据库连接失败", "Too many connections", "连接池", "重启应用", "重试机制"],
+    "answer_terms": ["数据库", "连接池", "重启应用", "重试"]
+  },
+  {
+    "id": "rag_service_003",
+    "question": "依赖服务故障导致级联故障时，应该采取哪些降级措施？",
+    "expected_sources": ["service_unavailable.md"],
+    "required_terms": ["依赖服务故障", "熔断", "跳过非关键依赖", "缓存数据", "降级响应"],
+    "answer_terms": ["熔断", "降级", "缓存", "超时控制"]
+  },
+  {
+    "id": "rag_slow_001",
+    "question": "P99 响应时间超过 3 秒，应该查哪些日志和指标？",
+    "expected_sources": ["slow_response.md"],
+    "required_terms": ["SlowResponse", "P99", "3秒", "应用性能日志", "慢查询", "系统资源"],
+    "answer_terms": ["P99", "慢查询", "CPU", "内存", "磁盘IO"]
+  },
+  {
+    "id": "rag_slow_002",
+    "question": "慢响应由数据库慢查询引起时，短期和长期优化方案是什么？",
+    "expected_sources": ["slow_response.md"],
+    "required_terms": ["数据库慢查询", "EXPLAIN", "添加索引", "查询缓存", "分库分表"],
+    "answer_terms": ["慢SQL", "索引", "EXPLAIN", "缓存"]
+  },
+  {
+    "id": "rag_slow_003",
+    "question": "缓存命中率突然下降导致响应变慢，应该如何处理？",
+    "expected_sources": ["slow_response.md"],
+    "required_terms": ["缓存失效", "缓存穿透", "缓存预热", "布隆过滤器", "多级缓存"],
+    "answer_terms": ["缓存预热", "缓存穿透", "布隆过滤器", "多级缓存"]
+  }
+]

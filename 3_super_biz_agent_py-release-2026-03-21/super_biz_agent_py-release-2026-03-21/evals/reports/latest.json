@@ -1,0 +1,1442 @@
+{
+  "generated_at": "2026-07-03T07:29:19.726717+00:00",
+  "config": {
+    "top_k": 3,
+    "docs_dir": "aiops-docs",
+    "datasets_dir": "evals\\datasets"
+  },
+  "overall_score": 0.8781,
+  "rag": {
+    "summary": {
+      "cases": 15,
+      "hit_at_1": 0.8667,
+      "hit_at_3": 1.0,
+      "mrr": 0.9222,
+      "context_precision_at_3": 0.3333,
+      "required_term_recall": 1.0,
+      "answer_term_coverage": 1.0
+    },
+    "cases": [
+      {
+        "id": "rag_cpu_001",
+        "question": "HighCPUUsage 告警触发后应该怎么快速止损？",
+        "expected_sources": [
+          "cpu_high_usage.md"
+        ],
+        "retrieved_sources": [
+          "service_unavailable.md",
+          "memory_high_usage.md",
+          "cpu_high_usage.md"
+        ],
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "rank": 3,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "service_unavailable.md",
+            "score": 23.301,
+            "overlap_terms": [
+              "告警",
+              "触发",
+              "快速",
+              "止损"
+            ]
+          },
+          {
+            "source": "memory_high_usage.md",
+            "score": 20.3244,
+            "overlap_terms": [
+              "highcpuusage",
+              "告警",
+              "触发",
+              "快速"
+            ]
+          },
+          {
+            "source": "cpu_high_usage.md",
+            "score": 16.6587,
+            "overlap_terms": [
+              "highcpuusage",
+              "告警",
+              "触发"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_cpu_002",
+        "question": "CPU 占用接近 100%，日志里有重复堆栈，可能是什么原因？",
+        "expected_sources": [
+          "cpu_high_usage.md"
+        ],
+        "retrieved_sources": [
+          "cpu_high_usage.md",
+          "slow_response.md",
+          "memory_high_usage.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "cpu_high_usage.md",
+            "score": 89.0975,
+            "overlap_terms": [
+              "100%",
+              "占用接近",
+              "cpu",
+              "占用接",
+              "用接近",
+              "占用",
+              "用接",
+              "接近",
+              "日志",
+              "重复",
+              "堆栈",
+              "可能"
+            ]
+          },
+          {
+            "source": "slow_response.md",
+            "score": 40.7114,
+            "overlap_terms": [
+              "cpu",
+              "占用",
+              "接近",
+              "日志",
+              "重复",
+              "可能",
+              "原因"
+            ]
+          },
+          {
+            "source": "memory_high_usage.md",
+            "score": 28.2445,
+            "overlap_terms": [
+              "cpu",
+              "占用",
+              "日志",
+              "可能",
+              "原因"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_cpu_003",
+        "question": "CPU 告警恢复后要怎么验证问题已经解决？",
+        "expected_sources": [
+          "cpu_high_usage.md"
+        ],
+        "retrieved_sources": [
+          "service_unavailable.md",
+          "cpu_high_usage.md",
+          "memory_high_usage.md"
+        ],
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "rank": 2,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "service_unavailable.md",
+            "score": 40.7554,
+            "overlap_terms": [
+              "恢复后",
+              "告警",
+              "恢复",
+              "复后",
+              "验证",
+              "问题"
+            ]
+          },
+          {
+            "source": "cpu_high_usage.md",
+            "score": 30.8695,
+            "overlap_terms": [
+              "cpu",
+              "告警",
+              "恢复",
+              "验证",
+              "问题"
+            ]
+          },
+          {
+            "source": "memory_high_usage.md",
+            "score": 25.127,
+            "overlap_terms": [
+              "cpu",
+              "告警",
+              "恢复",
+              "验证",
+              "问题"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_memory_001",
+        "question": "内存使用率超过 85% 并且出现 OOM，应该如何处理？",
+        "expected_sources": [
+          "memory_high_usage.md"
+        ],
+        "retrieved_sources": [
+          "memory_high_usage.md",
+          "service_unavailable.md",
+          "cpu_high_usage.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "memory_high_usage.md",
+            "score": 101.8335,
+            "overlap_terms": [
+              "内存使用",
+              "存使用率",
+              "85%",
+              "oom",
+              "内存使",
+              "存使用",
+              "使用率",
+              "内存",
+              "存使",
+              "使用",
+              "用率",
+              "超过"
+            ]
+          },
+          {
+            "source": "service_unavailable.md",
+            "score": 62.6157,
+            "overlap_terms": [
+              "内存使用",
+              "oom",
+              "内存使",
+              "存使用",
+              "率超过",
+              "内存",
+              "存使",
+              "使用",
+              "率超",
+              "超过",
+              "出现",
+              "处理"
+            ]
+          },
+          {
+            "source": "cpu_high_usage.md",
+            "score": 61.8916,
+            "overlap_terms": [
+              "内存使用",
+              "存使用率",
+              "内存使",
+              "存使用",
+              "使用率",
+              "内存",
+              "存使",
+              "使用",
+              "用率",
+              "超过",
+              "出现",
+              "处理"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_memory_002",
+        "question": "Full GC 后内存无法释放，最可能的根因和后续动作是什么？",
+        "expected_sources": [
+          "memory_high_usage.md"
+        ],
+        "retrieved_sources": [
+          "memory_high_usage.md",
+          "service_unavailable.md",
+          "disk_high_usage.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "memory_high_usage.md",
+            "score": 146.5282,
+            "overlap_terms": [
+              "full",
+              "后内存无",
+              "内存无法",
+              "存无法释",
+              "无法释放",
+              "后内存",
+              "内存无",
+              "存无法",
+              "无法释",
+              "法释放",
+              "gc",
+              "后内"
+            ]
+          },
+          {
+            "source": "service_unavailable.md",
+            "score": 38.3398,
+            "overlap_terms": [
+              "内存",
+              "无法",
+              "释放",
+              "可能",
+              "根因",
+              "因和",
+              "后续"
+            ]
+          },
+          {
+            "source": "disk_high_usage.md",
+            "score": 22.9102,
+            "overlap_terms": [
+              "full",
+              "内存",
+              "无法",
+              "释放"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_memory_003",
+        "question": "大文件处理导致内存突增时，长期优化方案有哪些？",
+        "expected_sources": [
+          "memory_high_usage.md"
+        ],
+        "retrieved_sources": [
+          "memory_high_usage.md",
+          "disk_high_usage.md",
+          "slow_response.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "memory_high_usage.md",
+            "score": 101.7891,
+            "overlap_terms": [
+              "内存突增",
+              "长期优化",
+              "大文件",
+              "内存突",
+              "存突增",
+              "长期优",
+              "期优化",
+              "大文",
+              "文件",
+              "处理",
+              "导致",
+              "内存"
+            ]
+          },
+          {
+            "source": "disk_high_usage.md",
+            "score": 95.8253,
+            "overlap_terms": [
+              "文件处理",
+              "长期优化",
+              "大文件",
+              "文件处",
+              "件处理",
+              "长期优",
+              "期优化",
+              "大文",
+              "文件",
+              "件处",
+              "处理",
+              "导致"
+            ]
+          },
+          {
+            "source": "slow_response.md",
+            "score": 50.2469,
+            "overlap_terms": [
+              "长期优化",
+              "长期优",
+              "期优化",
+              "处理",
+              "导致",
+              "内存",
+              "长期",
+              "期优",
+              "优化",
+              "方案"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_disk_001",
+        "question": "磁盘使用率超过 90%，日志无法写入，第一时间应该怎么排查？",
+        "expected_sources": [
+          "disk_high_usage.md"
+        ],
+        "retrieved_sources": [
+          "disk_high_usage.md",
+          "service_unavailable.md",
+          "memory_high_usage.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "disk_high_usage.md",
+            "score": 197.0067,
+            "overlap_terms": [
+              "磁盘使用",
+              "盘使用率",
+              "日志无法",
+              "无法写入",
+              "90%",
+              "磁盘使",
+              "盘使用",
+              "使用率",
+              "日志无",
+              "志无法",
+              "无法写",
+              "法写入"
+            ]
+          },
+          {
+            "source": "service_unavailable.md",
+            "score": 86.3419,
+            "overlap_terms": [
+              "第一时间",
+              "率超过",
+              "第一时",
+              "一时间",
+              "磁盘",
+              "使用",
+              "率超",
+              "超过",
+              "日志",
+              "无法",
+              "第一",
+              "一时"
+            ]
+          },
+          {
+            "source": "memory_high_usage.md",
+            "score": 55.9665,
+            "overlap_terms": [
+              "使用率",
+              "日志无",
+              "使用",
+              "用率",
+              "超过",
+              "日志",
+              "志无",
+              "无法",
+              "时间",
+              "排查"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_disk_002",
+        "question": "/var/log 占用大量空间且日志文件持续增长，该怎么处理？",
+        "expected_sources": [
+          "disk_high_usage.md"
+        ],
+        "retrieved_sources": [
+          "disk_high_usage.md",
+          "memory_high_usage.md",
+          "service_unavailable.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "disk_high_usage.md",
+            "score": 329.22,
+            "overlap_terms": [
+              "占用大量",
+              "用大量空",
+              "大量空间",
+              "日志文件",
+              "志文件持",
+              "文件持续",
+              "件持续增",
+              "持续增长",
+              "var",
+              "log",
+              "占用大",
+              "用大量"
+            ]
+          },
+          {
+            "source": "memory_high_usage.md",
+            "score": 50.1907,
+            "overlap_terms": [
+              "占用",
+              "大量",
+              "空间",
+              "日志",
+              "文件",
+              "持续",
+              "增长",
+              "处理"
+            ]
+          },
+          {
+            "source": "service_unavailable.md",
+            "score": 38.2197,
+            "overlap_terms": [
+              "占用",
+              "空间",
+              "日志",
+              "文件",
+              "持续",
+              "处理"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_disk_003",
+        "question": "Docker 镜像和停止容器占满磁盘，有哪些清理命令？",
+        "expected_sources": [
+          "disk_high_usage.md"
+        ],
+        "retrieved_sources": [
+          "disk_high_usage.md",
+          "memory_high_usage.md",
+          "service_unavailable.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "disk_high_usage.md",
+            "score": 127.7693,
+            "overlap_terms": [
+              "docker",
+              "清理命令",
+              "镜像和",
+              "容器占",
+              "清理命",
+              "理命令",
+              "镜像",
+              "像和",
+              "停止",
+              "容器",
+              "器占",
+              "磁盘"
+            ]
+          },
+          {
+            "source": "memory_high_usage.md",
+            "score": 15.2569,
+            "overlap_terms": [
+              "容器",
+              "清理",
+              "命令"
+            ]
+          },
+          {
+            "source": "service_unavailable.md",
+            "score": 11.6865,
+            "overlap_terms": [
+              "磁盘",
+              "清理"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_service_001",
+        "question": "ServiceUnavailable 告警发生时，5 分钟内应该做什么？",
+        "expected_sources": [
+          "service_unavailable.md"
+        ],
+        "retrieved_sources": [
+          "service_unavailable.md",
+          "memory_high_usage.md",
+          "slow_response.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "service_unavailable.md",
+            "score": 56.7006,
+            "overlap_terms": [
+              "serviceunavailable",
+              "发生时",
+              "分钟内",
+              "告警",
+              "发生",
+              "生时",
+              "分钟",
+              "钟内",
+              "5"
+            ]
+          },
+          {
+            "source": "memory_high_usage.md",
+            "score": 47.6638,
+            "overlap_terms": [
+              "告警发生",
+              "告警发",
+              "警发生",
+              "分钟内",
+              "告警",
+              "警发",
+              "发生",
+              "分钟",
+              "钟内",
+              "5"
+            ]
+          },
+          {
+            "source": "slow_response.md",
+            "score": 47.1783,
+            "overlap_terms": [
+              "告警发生",
+              "告警发",
+              "警发生",
+              "分钟内",
+              "告警",
+              "警发",
+              "发生",
+              "分钟",
+              "钟内",
+              "5"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_service_002",
+        "question": "服务不可用且日志出现数据库连接错误，应该如何恢复？",
+        "expected_sources": [
+          "service_unavailable.md"
+        ],
+        "retrieved_sources": [
+          "service_unavailable.md",
+          "slow_response.md",
+          "cpu_high_usage.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "service_unavailable.md",
+            "score": 214.0872,
+            "overlap_terms": [
+              "服务不可",
+              "务不可用",
+              "数据库连",
+              "据库连接",
+              "库连接错",
+              "连接错误",
+              "服务不",
+              "务不可",
+              "不可用",
+              "数据库",
+              "据库连",
+              "库连接"
+            ]
+          },
+          {
+            "source": "slow_response.md",
+            "score": 74.0229,
+            "overlap_terms": [
+              "数据库连",
+              "据库连接",
+              "数据库",
+              "据库连",
+              "库连接",
+              "服务",
+              "日志",
+              "数据",
+              "据库",
+              "库连",
+              "连接",
+              "错误"
+            ]
+          },
+          {
+            "source": "cpu_high_usage.md",
+            "score": 64.8816,
+            "overlap_terms": [
+              "数据库连",
+              "据库连接",
+              "数据库",
+              "据库连",
+              "库连接",
+              "服务",
+              "日志",
+              "出现",
+              "数据",
+              "据库",
+              "库连",
+              "连接"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_service_003",
+        "question": "依赖服务故障导致级联故障时，应该采取哪些降级措施？",
+        "expected_sources": [
+          "service_unavailable.md"
+        ],
+        "retrieved_sources": [
+          "service_unavailable.md",
+          "slow_response.md",
+          "memory_high_usage.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "service_unavailable.md",
+            "score": 183.4107,
+            "overlap_terms": [
+              "依赖服务",
+              "赖服务故",
+              "服务故障",
+              "级联故障",
+              "依赖服",
+              "赖服务",
+              "服务故",
+              "务故障",
+              "级联故",
+              "联故障",
+              "故障时",
+              "依赖"
+            ]
+          },
+          {
+            "source": "slow_response.md",
+            "score": 26.3089,
+            "overlap_terms": [
+              "依赖",
+              "服务",
+              "导致",
+              "降级",
+              "措施"
+            ]
+          },
+          {
+            "source": "memory_high_usage.md",
+            "score": 12.5275,
+            "overlap_terms": [
+              "服务",
+              "导致",
+              "措施"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_slow_001",
+        "question": "P99 响应时间超过 3 秒，应该查哪些日志和指标？",
+        "expected_sources": [
+          "slow_response.md"
+        ],
+        "retrieved_sources": [
+          "slow_response.md",
+          "service_unavailable.md",
+          "cpu_high_usage.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "slow_response.md",
+            "score": 89.4394,
+            "overlap_terms": [
+              "响应时间",
+              "p99",
+              "响应时",
+              "应时间",
+              "99",
+              "响应",
+              "应时",
+              "时间",
+              "超过",
+              "日志",
+              "指标",
+              "3"
+            ]
+          },
+          {
+            "source": "service_unavailable.md",
+            "score": 61.258,
+            "overlap_terms": [
+              "响应时间",
+              "响应时",
+              "应时间",
+              "日志和",
+              "响应",
+              "应时",
+              "时间",
+              "超过",
+              "日志",
+              "志和",
+              "3"
+            ]
+          },
+          {
+            "source": "cpu_high_usage.md",
+            "score": 52.9745,
+            "overlap_terms": [
+              "响应时间",
+              "响应时",
+              "应时间",
+              "响应",
+              "应时",
+              "时间",
+              "超过",
+              "日志",
+              "3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_slow_002",
+        "question": "慢响应由数据库慢查询引起时，短期和长期优化方案是什么？",
+        "expected_sources": [
+          "slow_response.md"
+        ],
+        "retrieved_sources": [
+          "slow_response.md",
+          "cpu_high_usage.md",
+          "disk_high_usage.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "slow_response.md",
+            "score": 154.2208,
+            "overlap_terms": [
+              "数据库慢",
+              "据库慢查",
+              "库慢查询",
+              "长期优化",
+              "数据库",
+              "据库慢",
+              "库慢查",
+              "慢查询",
+              "长期优",
+              "期优化",
+              "响应",
+              "数据"
+            ]
+          },
+          {
+            "source": "cpu_high_usage.md",
+            "score": 67.7988,
+            "overlap_terms": [
+              "长期优化",
+              "数据库",
+              "慢查询",
+              "长期优",
+              "期优化",
+              "响应",
+              "数据",
+              "据库",
+              "慢查",
+              "查询",
+              "短期",
+              "长期"
+            ]
+          },
+          {
+            "source": "disk_high_usage.md",
+            "score": 57.5385,
+            "overlap_terms": [
+              "长期优化",
+              "数据库",
+              "长期优",
+              "期优化",
+              "数据",
+              "据库",
+              "查询",
+              "短期",
+              "长期",
+              "期优",
+              "优化",
+              "方案"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rag_slow_003",
+        "question": "缓存命中率突然下降导致响应变慢，应该如何处理？",
+        "expected_sources": [
+          "slow_response.md"
+        ],
+        "retrieved_sources": [
+          "slow_response.md",
+          "memory_high_usage.md",
+          "disk_high_usage.md"
+        ],
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "rank": 1,
+        "context_precision_at_3": 0.3333,
+        "required_term_recall": 1.0,
+        "answer_term_coverage": 1.0,
+        "missing_required_terms": [],
+        "top_scores": [
+          {
+            "source": "slow_response.md",
+            "score": 166.6441,
+            "overlap_terms": [
+              "缓存命中",
+              "存命中率",
+              "命中率突",
+              "中率突然",
+              "率突然下",
+              "突然下降",
+              "响应变慢",
+              "缓存命",
+              "存命中",
+              "命中率",
+              "中率突",
+              "率突然"
+            ]
+          },
+          {
+            "source": "memory_high_usage.md",
+            "score": 85.6108,
+            "overlap_terms": [
+              "缓存命中",
+              "存命中率",
+              "缓存命",
+              "存命中",
+              "命中率",
+              "率突然",
+              "缓存",
+              "存命",
+              "命中",
+              "中率",
+              "率突",
+              "突然"
+            ]
+          },
+          {
+            "source": "disk_high_usage.md",
+            "score": 56.3368,
+            "overlap_terms": [
+              "缓存命中",
+              "存命中率",
+              "缓存命",
+              "存命中",
+              "命中率",
+              "缓存",
+              "存命",
+              "命中",
+              "中率",
+              "下降",
+              "导致",
+              "处理"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tool_calling": {
+    "summary": {
+      "cases": 12,
+      "exact_match": 0.5,
+      "micro_precision": 0.871,
+      "micro_recall": 0.8438,
+      "micro_f1": 0.8571
+    },
+    "cases": [
+      {
+        "id": "tool_cpu_001",
+        "prompt": "data-sync-service 触发 HighCPUUsage，帮我查最近 30 分钟 CPU 指标和错误日志",
+        "expected_tools": [
+          "get_current_time",
+          "query_cpu_metrics",
+          "retrieve_knowledge",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "predicted_tools": [
+          "get_current_time",
+          "query_cpu_metrics",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "exact_match": false,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.8889,
+        "missing_tools": [
+          "retrieve_knowledge"
+        ],
+        "extra_tools": []
+      },
+      {
+        "id": "tool_cpu_002",
+        "prompt": "CPU 持续超过 80%，需要根据知识库给出处理方案",
+        "expected_tools": [
+          "query_cpu_metrics",
+          "retrieve_knowledge"
+        ],
+        "predicted_tools": [
+          "query_cpu_metrics",
+          "retrieve_knowledge"
+        ],
+        "exact_match": true,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "missing_tools": [],
+        "extra_tools": []
+      },
+      {
+        "id": "tool_memory_001",
+        "prompt": "服务出现 OOM，内存使用率超过 85%，请查询监控并结合知识库分析",
+        "expected_tools": [
+          "query_memory_metrics",
+          "retrieve_knowledge"
+        ],
+        "predicted_tools": [
+          "query_memory_metrics",
+          "retrieve_knowledge"
+        ],
+        "exact_match": true,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "missing_tools": [],
+        "extra_tools": []
+      },
+      {
+        "id": "tool_memory_002",
+        "prompt": "最近一小时 GC overhead 很多，帮我查相关日志并判断是不是内存泄漏",
+        "expected_tools": [
+          "get_current_time",
+          "retrieve_knowledge",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "predicted_tools": [
+          "get_current_time",
+          "query_memory_metrics",
+          "retrieve_knowledge",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "exact_match": false,
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1": 0.8889,
+        "missing_tools": [],
+        "extra_tools": [
+          "query_memory_metrics"
+        ]
+      },
+      {
+        "id": "tool_disk_001",
+        "prompt": "磁盘满了，日志写不进去，帮我查系统日志并给出清理建议",
+        "expected_tools": [
+          "retrieve_knowledge",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "predicted_tools": [
+          "retrieve_knowledge",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "exact_match": true,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "missing_tools": [],
+        "extra_tools": []
+      },
+      {
+        "id": "tool_disk_002",
+        "prompt": "Docker 镜像导致磁盘占用很高，查知识库里的标准处理方案",
+        "expected_tools": [
+          "retrieve_knowledge"
+        ],
+        "predicted_tools": [
+          "retrieve_knowledge",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "exact_match": false,
+        "precision": 0.3333,
+        "recall": 1.0,
+        "f1": 0.5,
+        "missing_tools": [],
+        "extra_tools": [
+          "search_log",
+          "search_topic_by_service_name"
+        ]
+      },
+      {
+        "id": "tool_service_001",
+        "prompt": "ServiceUnavailable，健康检查失败，帮我查应用错误日志和依赖服务日志",
+        "expected_tools": [
+          "retrieve_knowledge",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "predicted_tools": [
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "exact_match": false,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "f1": 0.8,
+        "missing_tools": [
+          "retrieve_knowledge"
+        ],
+        "extra_tools": []
+      },
+      {
+        "id": "tool_service_002",
+        "prompt": "数据库连接失败导致服务不可用，需要定位日志和处理建议",
+        "expected_tools": [
+          "retrieve_knowledge",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "predicted_tools": [
+          "retrieve_knowledge",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "exact_match": true,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "missing_tools": [],
+        "extra_tools": []
+      },
+      {
+        "id": "tool_slow_001",
+        "prompt": "P99 响应时间超过 3 秒，帮我查慢查询日志和系统资源",
+        "expected_tools": [
+          "query_cpu_metrics",
+          "query_memory_metrics",
+          "retrieve_knowledge",
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "predicted_tools": [
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "exact_match": false,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714,
+        "missing_tools": [
+          "query_cpu_metrics",
+          "query_memory_metrics",
+          "retrieve_knowledge"
+        ],
+        "extra_tools": []
+      },
+      {
+        "id": "tool_slow_002",
+        "prompt": "接口响应慢，怀疑缓存穿透，先查知识库给出排查路径",
+        "expected_tools": [
+          "retrieve_knowledge"
+        ],
+        "predicted_tools": [
+          "retrieve_knowledge"
+        ],
+        "exact_match": true,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "missing_tools": [],
+        "extra_tools": []
+      },
+      {
+        "id": "tool_general_001",
+        "prompt": "现在是什么时间？我要确认告警时间窗口",
+        "expected_tools": [
+          "get_current_time"
+        ],
+        "predicted_tools": [
+          "get_current_time",
+          "retrieve_knowledge"
+        ],
+        "exact_match": false,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6667,
+        "missing_tools": [],
+        "extra_tools": [
+          "retrieve_knowledge"
+        ]
+      },
+      {
+        "id": "tool_general_002",
+        "prompt": "查一下 data-sync-service 的 error 日志",
+        "expected_tools": [
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "predicted_tools": [
+          "search_log",
+          "search_topic_by_service_name"
+        ],
+        "exact_match": true,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "missing_tools": [],
+        "extra_tools": []
+      }
+    ]
+  },
+  "aiops_diagnosis": {
+    "summary": {
+      "cases": 9,
+      "root_cause_hit_at_1": 0.8889,
+      "mean_evidence_coverage": 1.0,
+      "mean_action_coverage": 0.8889,
+      "diagnosis_pass_rate": 0.8889
+    },
+    "cases": [
+      {
+        "id": "aiops_cpu_spin_loop",
+        "alert_name": "HighCPUUsage",
+        "service_name": "data-sync-service",
+        "expected_root_causes": [
+          "cpu_spin_loop"
+        ],
+        "predicted_root_causes": [
+          "cpu_spin_loop"
+        ],
+        "root_cause_hit_at_1": true,
+        "evidence_coverage": 1.0,
+        "action_coverage": 1.0,
+        "passed": true,
+        "missing_evidence_terms": [],
+        "missing_actions": []
+      },
+      {
+        "id": "aiops_cpu_traffic_spike",
+        "alert_name": "HighCPUUsage",
+        "service_name": "api-gateway-service",
+        "expected_root_causes": [
+          "traffic_spike"
+        ],
+        "predicted_root_causes": [
+          "traffic_spike"
+        ],
+        "root_cause_hit_at_1": true,
+        "evidence_coverage": 1.0,
+        "action_coverage": 1.0,
+        "passed": true,
+        "missing_evidence_terms": [],
+        "missing_actions": []
+      },
+      {
+        "id": "aiops_memory_leak",
+        "alert_name": "HighMemoryUsage",
+        "service_name": "order-service",
+        "expected_root_causes": [
+          "memory_leak"
+        ],
+        "predicted_root_causes": [
+          "memory_leak"
+        ],
+        "root_cause_hit_at_1": true,
+        "evidence_coverage": 1.0,
+        "action_coverage": 1.0,
+        "passed": true,
+        "missing_evidence_terms": [],
+        "missing_actions": []
+      },
+      {
+        "id": "aiops_memory_oom",
+        "alert_name": "HighMemoryUsage",
+        "service_name": "file-import-service",
+        "expected_root_causes": [
+          "large_file_memory_pressure"
+        ],
+        "predicted_root_causes": [
+          "large_file_memory_pressure"
+        ],
+        "root_cause_hit_at_1": true,
+        "evidence_coverage": 1.0,
+        "action_coverage": 1.0,
+        "passed": true,
+        "missing_evidence_terms": [],
+        "missing_actions": []
+      },
+      {
+        "id": "aiops_disk_log_bloat",
+        "alert_name": "HighDiskUsage",
+        "service_name": "payment-service",
+        "expected_root_causes": [
+          "log_bloat"
+        ],
+        "predicted_root_causes": [
+          "log_bloat"
+        ],
+        "root_cause_hit_at_1": true,
+        "evidence_coverage": 1.0,
+        "action_coverage": 1.0,
+        "passed": true,
+        "missing_evidence_terms": [],
+        "missing_actions": []
+      },
+      {
+        "id": "aiops_service_db_connection",
+        "alert_name": "ServiceUnavailable",
+        "service_name": "checkout-service",
+        "expected_root_causes": [
+          "db_connection_failure"
+        ],
+        "predicted_root_causes": [
+          "db_connection_failure"
+        ],
+        "root_cause_hit_at_1": true,
+        "evidence_coverage": 1.0,
+        "action_coverage": 1.0,
+        "passed": true,
+        "missing_evidence_terms": [],
+        "missing_actions": []
+      },
+      {
+        "id": "aiops_slow_db_query",
+        "alert_name": "SlowResponse",
+        "service_name": "report-service",
+        "expected_root_causes": [
+          "database_slow_query"
+        ],
+        "predicted_root_causes": [
+          "database_slow_query"
+        ],
+        "root_cause_hit_at_1": true,
+        "evidence_coverage": 1.0,
+        "action_coverage": 1.0,
+        "passed": true,
+        "missing_evidence_terms": [],
+        "missing_actions": []
+      },
+      {
+        "id": "aiops_slow_cache_miss",
+        "alert_name": "SlowResponse",
+        "service_name": "profile-service",
+        "expected_root_causes": [
+          "cache_miss_or_penetration"
+        ],
+        "predicted_root_causes": [
+          "cache_miss_or_penetration"
+        ],
+        "root_cause_hit_at_1": true,
+        "evidence_coverage": 1.0,
+        "action_coverage": 1.0,
+        "passed": true,
+        "missing_evidence_terms": [],
+        "missing_actions": []
+      },
+      {
+        "id": "aiops_service_network_dns",
+        "alert_name": "ServiceUnavailable",
+        "service_name": "edge-api-service",
+        "expected_root_causes": [
+          "network_or_dns_failure"
+        ],
+        "predicted_root_causes": [
+          "db_connection_failure"
+        ],
+        "root_cause_hit_at_1": false,
+        "evidence_coverage": 1.0,
+        "action_coverage": 0.0,
+        "passed": false,
+        "missing_evidence_terms": [],
+        "missing_actions": [
+          "check_dns",
+          "check_load_balancer",
+          "switch_traffic"
+        ]
+      }
+    ]
+  }
+}

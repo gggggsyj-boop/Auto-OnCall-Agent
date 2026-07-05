@@ -1,0 +1,62 @@
+[
+  {
+    "id": "tool_cpu_001",
+    "prompt": "data-sync-service 触发 HighCPUUsage，帮我查最近 30 分钟 CPU 指标和错误日志",
+    "expected_tools": ["get_current_time", "query_cpu_metrics", "search_topic_by_service_name", "search_log", "retrieve_knowledge"]
+  },
+  {
+    "id": "tool_cpu_002",
+    "prompt": "CPU 持续超过 80%，需要根据知识库给出处理方案",
+    "expected_tools": ["query_cpu_metrics", "retrieve_knowledge"]
+  },
+  {
+    "id": "tool_memory_001",
+    "prompt": "服务出现 OOM，内存使用率超过 85%，请查询监控并结合知识库分析",
+    "expected_tools": ["query_memory_metrics", "retrieve_knowledge"]
+  },
+  {
+    "id": "tool_memory_002",
+    "prompt": "最近一小时 GC overhead 很多，帮我查相关日志并判断是不是内存泄漏",
+    "expected_tools": ["get_current_time", "search_topic_by_service_name", "search_log", "retrieve_knowledge"]
+  },
+  {
+    "id": "tool_disk_001",
+    "prompt": "磁盘满了，日志写不进去，帮我查系统日志并给出清理建议",
+    "expected_tools": ["search_topic_by_service_name", "search_log", "retrieve_knowledge"]
+  },
+  {
+    "id": "tool_disk_002",
+    "prompt": "Docker 镜像导致磁盘占用很高，查知识库里的标准处理方案",
+    "expected_tools": ["retrieve_knowledge"]
+  },
+  {
+    "id": "tool_service_001",
+    "prompt": "ServiceUnavailable，健康检查失败，帮我查应用错误日志和依赖服务日志",
+    "expected_tools": ["search_topic_by_service_name", "search_log", "retrieve_knowledge"]
+  },
+  {
+    "id": "tool_service_002",
+    "prompt": "数据库连接失败导致服务不可用，需要定位日志和处理建议",
+    "expected_tools": ["search_topic_by_service_name", "search_log", "retrieve_knowledge"]
+  },
+  {
+    "id": "tool_slow_001",
+    "prompt": "P99 响应时间超过 3 秒，帮我查慢查询日志和系统资源",
+    "expected_tools": ["search_topic_by_service_name", "search_log", "query_cpu_metrics", "query_memory_metrics", "retrieve_knowledge"]
+  },
+  {
+    "id": "tool_slow_002",
+    "prompt": "接口响应慢，怀疑缓存穿透，先查知识库给出排查路径",
+    "expected_tools": ["retrieve_knowledge"]
+  },
+  {
+    "id": "tool_general_001",
+    "prompt": "现在是什么时间？我要确认告警时间窗口",
+    "expected_tools": ["get_current_time"]
+  },
+  {
+    "id": "tool_general_002",
+    "prompt": "查一下 data-sync-service 的 error 日志",
+    "expected_tools": ["search_topic_by_service_name", "search_log"]
+  }
+]
